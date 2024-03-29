@@ -31,7 +31,7 @@ $(function () {
 
             let SuperHero = {
                 name: response.name,
-                image: response.image.url,
+                image: response.image['url'],
                 connections: response.connections['group-affiliation'],
                 published: response.biography['publisher'],
                 occupation: response.work['occupation'],
@@ -44,9 +44,10 @@ $(function () {
             currentSuperHero = SuperHero;
             loadCardSuperHero(SuperHero);
 
-        }).fail (function(){
+        }).fail(function(){
             alert('Error al procesar al Super Heroe, por favor verifique el indice en la guía oficial')
         })
+        console.log(alert)
     };
 
     function loadCardSuperHero (superHero){
