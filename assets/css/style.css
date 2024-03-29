@@ -1,3 +1,11 @@
 .title {
     font-family: 'Honk', sans-serif;
 }
+
+/* body {
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/330/959/577/watchmen-wallpaper-preview.jpg)
+} */
+
+#cardSuperHero .published {
+    font-size: 10px;
+}
