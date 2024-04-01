@@ -15,11 +15,12 @@
         crossorigin="anonymous"></script>
 
     <!-- JQUERY -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- CANVAS JS -->
-    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script defer src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/54701f1efc.js" crossorigin="anonymous"></script>
@@ -74,7 +75,7 @@
 
                 <h1 class="title">Encuentra tu Super Hero</h1>
 
-                <div>
+                <div class="mb-3 m-auto w-50 text-center">
                     <label for="SuperHero" class="form-label my-3">Ingresa el número de Super Hero a buscar</label>
                     <input type="text" class="form-control my-3" id="SuperHero" name="SuperHero" placeholder="">
 
@@ -92,7 +93,7 @@
 
         <!-- INICIO TARJETAS -->
 
-        <div class="contenedor row flex-wrap">
+        <div id="cards" class="contenedor row flex-wrap d-none">
 
             <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
 
@@ -103,17 +104,20 @@
                     <div id="cardSuperHero" class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img id="cardSuperHero-image" src="./assets/img/whoSuperHero.jpg" class="img-fluid rounded-start" alt="...">
+                                <img id="cardSuperHero-image" src="./assets/img/whoSuperHero.jpg"
+                                    class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 id="cardSuperHero-name" class="card-title">...</h5>
                                     <p class="card-text">Conexiones: <span id="cardSuperHero-Affiliation"></span></p>
-                                    <p class="card-text published">Publicado por: <span id="cardSuperHero-publisher"></span></p>
+                                    <p class="card-text published">Publicado por: <span
+                                            id="cardSuperHero-publisher"></span></p>
                                     <hr style="width: 90%;">
                                     <p class="card-text">Ocupacion: <span id="cardSuperHero-occupation"></span></p>
                                     <hr style="width: 90%;">
-                                    <p class="card-text">Primera Aparición: <span id="cardSuperHero-firstAppearance"></span></p>
+                                    <p class="card-text">Primera Aparición: <span
+                                            id="cardSuperHero-firstAppearance"></span></p>
                                     <hr style="width: 90%">
                                     <p class="card-text">Altura: <span id="cardSuperHero-height"></span></p>
                                     <hr style="width: 90%;">
@@ -123,15 +127,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-
-                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-                    
                 </section>
 
+
             </div>
+
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+            </div>
+
+        </div>
 
 
         </div>

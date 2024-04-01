@@ -7,15 +7,15 @@ $(function () {
 
     $('#searchSuperHero').on('submit', function (event){
         event.preventDefault();
-        const regexValidacion = /^([0-9])*$/;
+        const regexValidacion = /^([0-9])*$/i;
 
         let idSuperHero = $('#SuperHero').val();
 
-        if (regexValidacion.test(idSuperHero)) {
+        if (regexValidacion.test(idSuperHero) && idSuperHero<732 && idSuperHero >0) {
             //Si ID EXISTE 
             getSuperHero(idSuperHero);
         } else {
-            return alert('El formato de busqueda no es válido, por favor ingrese solo números');
+            failRegex(idSuperHero)
         }
     });
 
@@ -27,9 +27,10 @@ $(function () {
             dataType: 'json'
         }).done(function (response) {
 
+            $('#SuperHero').val('')
             console.log(response); 
 
-            let SuperHero = {
+            let superHero = {
                 name: response.name,
                 image: response.image['url'],
                 connections: response.connections['group-affiliation'],
@@ -38,14 +39,19 @@ $(function () {
                 firstAppearance: response.biography['first-appearance'],
                 Height: response.appearance['height'],
                 Weight: response.appearance['weight'],
-                alliances: response.connections['group-affiliation']
+                alliances: response.connections['group-affiliation'],
+                powerstats: response.powerstats
                 };
 
-            currentSuperHero = SuperHero;
-            loadCardSuperHero(SuperHero);
+            currentSuperHero = superHero;
+            loadCardSuperHero(superHero);
+
+            loadHeroGraph(currentSuperHero);
+
+            $('#cards').removeClass( "d-none" );
 
         }).fail(function(){
-            alert('Error al procesar al Super Heroe, por favor verifique el indice en la guía oficial')
+            alert('Error al procesar al Super Heroe, por favor verifique el indice en la guía oficial');
         })
         console.log(alert)
     };
@@ -62,5 +68,49 @@ $(function () {
         $('#cardSuperHero-weight').text(superHero.Weight);
         $('#cardSuperHero-alliances').text(superHero.alliances);
 
+        
+
     }
+
+        const loadHeroGraph = (superHero) => {
+            let {powerstats} = superHero
+            console.log(powerstats);
+
+        let dataPointsHero = []
+        for (const key in powerstats) {
+            dataPointsHero.push({label: key, y: Number(powerstats[key])})
+        }
+        console.log(dataPointsHero)
+
+
+        let chart = new CanvasJS.Chart("chartContainer", {
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Estadisticas de Poder para: " + superHero.name
+            },
+            data: [{
+                type: "pie",
+                startAngle: 25,
+                toolTipContent: "<b>{label}</b>: {y}%",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}%",
+                dataPoints: dataPointsHero
+            }]
+        });
+        return chart.render();
+
+    }
+
+
+
+        
+    
+
+
+
+
 });
