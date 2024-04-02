@@ -11,11 +11,11 @@ $(function () {
 
         let idSuperHero = $('#SuperHero').val();
 
-        if (regexValidacion.test(idSuperHero) && idSuperHero<732 && idSuperHero >0) {
+        if (regexValidacion.test(idSuperHero) && idSuperHero<733 && idSuperHero>0) {
             //Si ID EXISTE 
             getSuperHero(idSuperHero);
         } else {
-            failRegex(idSuperHero)
+            return alert('El formato de busqueda no es válido, ingrese un número entre 1 y 732');
         }
     });
 
@@ -50,10 +50,7 @@ $(function () {
 
             $('#cards').removeClass( "d-none" );
 
-        }).fail(function(){
-            alert('Error al procesar al Super Heroe, por favor verifique el indice en la guía oficial');
         })
-        console.log(alert)
     };
 
     function loadCardSuperHero (superHero){
@@ -83,34 +80,34 @@ $(function () {
         console.log(dataPointsHero)
 
 
-        let chart = new CanvasJS.Chart("chartContainer", {
-            theme: "light2", // "light1", "light2", "dark1", "dark2"
-            exportEnabled: true,
+
+        CanvasJS.addColorSet("orangeYellow",
+                [//colorSet Array
+
+                "#F1C40F",
+                "#F39C12",
+                "#E67E22",
+                "#D35400",
+                "#F4D03F",
+                "#DAF7A6"                
+                ]);
+        
+        let chart = new CanvasJS.Chart("graphContainer", {
             animationEnabled: true,
+            animationDuration: 5000,
+            theme: "dark1", //"light1", "dark1", "dark2"
+            colorSet: "orangeYellow",
             title: {
-                text: "Estadisticas de Poder para: " + superHero.name
+                text: `Estadisticas de Poder para ${superHero.name}`
             },
             data: [{
-                type: "pie",
-                startAngle: 25,
-                toolTipContent: "<b>{label}</b>: {y}%",
-                showInLegend: "true",
-                legendText: "{label}",
-                indexLabelFontSize: 16,
-                indexLabel: "{label} - {y}%",
+                type: "bar",
                 dataPoints: dataPointsHero
             }]
         });
         return chart.render();
 
     }
-
-
-
-        
-    
-
-
 
 
 });

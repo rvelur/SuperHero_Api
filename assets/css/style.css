@@ -1,11 +1,29 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1531501410720-c8d437636169?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:  0.8;
+}
+
 .title {
     font-family: 'Honk', sans-serif;
 }
 
-/* body {
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/330/959/577/watchmen-wallpaper-preview.jpg)
-} */
+.SuperHeroNumber {
+    color: #F0F7F9;
+    font-weight: bold;
+}
 
 #cardSuperHero .published {
     font-size: 10px;
 }
+
+
+#cardSuperHero {
+    background-color: black;
+    opacity:  0.75;
+    border: none;
+    color: white;
+    font-weight: bolder;
+}
+

@@ -45,7 +45,7 @@
 
     <!-- INICIO NAVBAR -->
 
-    <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+    <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="./assets/img/sh1.jpg" alt="SuperHero" width="10%"
@@ -57,7 +57,7 @@
 
     <header>
 
-        <section id="image" class="text-center">
+        <section id="image" class="text-center pt-5">
 
             <img src="./assets/img/sh2.jpg" class="img-fluid" alt="SuperHero">
 
@@ -76,7 +76,7 @@
                 <h1 class="title">Encuentra tu Super Hero</h1>
 
                 <div class="mb-3 m-auto w-50 text-center">
-                    <label for="SuperHero" class="form-label my-3">Ingresa el número de Super Hero a buscar</label>
+                    <label for="SuperHero" class="SuperHeroNumber form-label my-3">Ingresa el número de Super Hero a buscar</label>
                     <input type="text" class="form-control my-3" id="SuperHero" name="SuperHero" placeholder="">
 
                     <div class="pt-1">
@@ -127,6 +127,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                 </section>
 
@@ -135,14 +136,14 @@
 
             <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
 
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div id="graphContainer" style="height: 370px; width: 100%;"></div>
 
             </div>
 
         </div>
 
 
-        </div>
+        
 
         <!-- FIN TARJETAS -->
 
