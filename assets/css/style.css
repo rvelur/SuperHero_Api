@@ -5,6 +5,10 @@ body {
     opacity:  0.8;
 }
 
+#image{
+    opacity: 0.85;
+}
+
 .title {
     font-family: 'Honk', sans-serif;
 }
